@@ -4,10 +4,14 @@
     role="combobox"
     aria-haspopup="listbox"
     :aria-owns="`result-list-${id}`"
-    :aria-expanded="(isFocused && data.length > 0) ? 'true' : 'false'"
+    :aria-expanded="isFocused && data.length > 0 ? 'true' : 'false'"
   >
     <div :class="inputGroupClasses">
-      <div ref="prependDiv" v-if="$slots.prepend || prepend" class="input-group-prepend">
+      <div
+        ref="prependDiv"
+        v-if="$slots.prepend || prepend"
+        class="input-group-prepend"
+      >
         <slot name="prepend">
           <span class="input-group-text">{{ prepend }}</span>
         </slot>
@@ -25,7 +29,7 @@
         :aria-activedescendant="`selected-option-${id}`"
         :name="inputName"
         :placeholder="placeholder"
-        :aria-label="(!ariaLabelledBy) ? placeholder : false"
+        :aria-label="!ariaLabelledBy ? placeholder : false"
         :value="inputValue"
         :disabled="disabled"
         @focus="handleFocus"
@@ -58,13 +62,17 @@
       :showAllResults="showAllResults"
       @hit="handleHit"
       @listItemBlur="handleChildBlur"
-      :highlightClass='highlightClass'
+      :highlightClass="highlightClass"
       :disabledValues="disabledValues"
       :vbtUniqueId="id"
       role="listbox"
     >
       <!-- pass down all scoped slots -->
-      <template v-for="(slot, slotName) in $scopedSlots" :slot="slotName" slot-scope="{ data, htmlText }">
+      <template
+        v-for="(slot, slotName) in $scopedSlots"
+        :slot="slotName"
+        slot-scope="{ data, htmlText }"
+      >
         <slot :name="slotName" v-bind="{ data, htmlText }"></slot>
       </template>
       <!-- below is the right solution, however if the user does not provide a scoped slot, vue will still set $scopedSlots.suggestion to a blank scope
@@ -94,7 +102,7 @@ export default {
     size: {
       type: String,
       default: null,
-      validator: size => ['lg', 'md', 'sm'].indexOf(size) > -1
+      validator: (size) => ['lg', 'md', 'sm'].indexOf(size) > -1
     },
     value: {
       type: String
@@ -106,24 +114,24 @@ export default {
     data: {
       type: Array,
       required: true,
-      validator: d => d instanceof Array
+      validator: (d) => d instanceof Array
     },
     serializer: {
       type: Function,
       default: (d) => d,
-      validator: d => d instanceof Function
+      validator: (d) => d instanceof Function
     },
     // Don't call this method, use _screenReaderTextSerializer()
     // Using _screenReaderTextSerializer allows for defaulting based on .serializer
     screenReaderTextSerializer: {
       type: Function,
-      validator: d => d instanceof Function
+      validator: (d) => d instanceof Function
     },
     backgroundVariant: String,
     backgroundVariantResolver: {
       type: Function,
       default: (d) => d,
-      validator: d => d instanceof Function
+      validator: (d) => d instanceof Function
     },
     disabledValues: {
       type: Array,
@@ -149,6 +157,10 @@ export default {
     disableSort: {
       type: Boolean,
       default: false
+    },
+    noResultsInfo: {
+      type: String,
+      default: 'No results found for {query}.'
     },
     showOnFocus: {
       type: Boolean,
@@ -254,7 +266,9 @@ export default {
 
     handleFocusOut(evt) {
       if (!!navigator.userAgent.match(/Trident.*rv:11\./) && this.ieCloseFix) {
-        setTimeout(() => { this.runFocusOut(evt) }, 300)
+        setTimeout(() => {
+          this.runFocusOut(evt)
+        }, 300)
       } else {
         this.runFocusOut(evt)
       }
@@ -293,7 +307,7 @@ export default {
   },
 
   mounted() {
-    this.$_ro = new ResizeObserver(e => {
+    this.$_ro = new ResizeObserver((e) => {
       this.resizeList(this.$refs.input)
     })
     this.$_ro.observe(this.$refs.input)
@@ -305,7 +319,7 @@ export default {
   },
 
   watch: {
-    value: function(val) {
+    value: function (val) {
       this.inputValue = val
     }
   }
@@ -313,15 +327,15 @@ export default {
 </script>
 
 <style scoped>
-  .vbt-autocomplete-list {
-    padding-top: 5px;
-    position: absolute;
-    max-height: 350px;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    overflow-y: auto;
-    z-index: 999;
-  }
-  .vbt-autocomplete-list >>> .vbt-matched-text{
-    font-weight: bold;
-  }
+.vbt-autocomplete-list {
+  padding-top: 5px;
+  position: absolute;
+  max-height: 350px;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-y: auto;
+  z-index: 999;
+}
+.vbt-autocomplete-list >>> .vbt-matched-text {
+  font-weight: bold;
+}
 </style>

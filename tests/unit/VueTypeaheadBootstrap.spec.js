@@ -183,7 +183,7 @@ describe('VueBootstrapAutocomplete', () => {
       await input.trigger('focus')
 
       let listItem = wrapper.get('.vbst-item').element
-      await input.trigger('blur', {relatedTarget: listItem})
+      await input.trigger('blur', { relatedTarget: listItem })
 
       expect(wrapper.emitted().blur).toBeFalsy()
     })
@@ -198,6 +198,6 @@ describe('VueBootstrapAutocomplete', () => {
       let input = wrapper.find('input')
       await input.trigger('paste')
       expect(wrapper.emitted().paste).toBeTruthy()
-    });
+    })
   })
 })

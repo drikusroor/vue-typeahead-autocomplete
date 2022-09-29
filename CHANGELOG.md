@@ -1,3 +1,6 @@
+## 2.15.0 - 29 Sep 2022
+- Add `noResultInfo` for when there are no results matching the user's search
+
 ## 2.14.0 - 25 Sep 2022
 - Update docs with event examples
 - Emit paste event from input
