@@ -57,6 +57,7 @@
       :text-variant="textVariant"
       :maxMatches="maxMatches"
       :minMatchingChars="minMatchingChars"
+      :noResultsInfo="noResultsInfo"
       :disableSort="disableSort"
       :showOnFocus="showOnFocus"
       :showAllResults="showAllResults"

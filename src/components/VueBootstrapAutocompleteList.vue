@@ -4,7 +4,7 @@
       class="vbst-item list-group-item list-group-item-action"
       v-if="matchedItems.length == 0"
     >
-      {{ noResultsInfo }}
+      {{ noResultsText }}
     </div>
     <vue-bootstrap-autocomplete-list-item
       v-for="(item, id) in matchedItems"
@@ -102,7 +102,7 @@ export default {
       type: Array,
       default: () => []
     },
-    noResultsText: {
+    noResultsInfo: {
       type: String,
       default: 'No results found for {query}.'
     },
@@ -131,8 +131,8 @@ export default {
   },
 
   computed: {
-    noResultsInfo() {
-      return this.noResultsText.replace('{query}', this.query)
+    noResultsText() {
+      return this.noResultsInfo.replace('{query}', this.query)
     },
 
     highlight() {
