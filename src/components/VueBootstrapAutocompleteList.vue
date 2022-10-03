@@ -1,10 +1,11 @@
 <template>
   <div class="list-group shadow" ref="suggestionList">
     <div
+      id="noResultsInfo"
       class="vbst-item list-group-item list-group-item-action"
-      v-if="matchedItems.length == 0"
+      v-if="matchedItems.length == 0 && !!noResultsInfo"
     >
-      {{ noResultsText }}
+      {{ noResultsInfo }}
     </div>
     <vue-bootstrap-autocomplete-list-item
       v-for="(item, id) in matchedItems"
@@ -103,8 +104,7 @@ export default {
       default: () => []
     },
     noResultsInfo: {
-      type: String,
-      default: 'No results found for {query}.'
+      type: String
     },
     showOnFocus: {
       type: Boolean,
@@ -131,9 +131,6 @@ export default {
   },
 
   computed: {
-    noResultsText() {
-      return this.noResultsInfo.replace('{query}', this.query)
-    },
 
     highlight() {
       return (text) => {

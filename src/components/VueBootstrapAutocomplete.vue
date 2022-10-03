@@ -160,8 +160,7 @@ export default {
       default: false
     },
     noResultsInfo: {
-      type: String,
-      default: 'No results found for {query}.'
+      type: String
     },
     showOnFocus: {
       type: Boolean,

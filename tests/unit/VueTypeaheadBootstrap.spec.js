@@ -200,28 +200,29 @@ describe('VueBootstrapAutocomplete', () => {
       expect(wrapper.emitted().paste).toBeTruthy()
     })
 
-    it('Shows a "No results found for {query}', async () => {
+    it('Shows a "No results found for Cadana', async () => {
       wrapper.setProps({
-        noResultsInfo: 'Sadly, no results found for {query}'
+        noResultsInfo: 'Sadly, no results found for Cadana'
       })
 
       let child = wrapper.findComponent(VueBootstrapAutocompleteList)
 
       expect(child.isVisible()).toBe(false)
-      wrapper.find('input').setValue('Nak')
+      wrapper.find('input').setValue('Cadana')
       await wrapper.vm.$nextTick()
       expect(child.isVisible()).toBe(true)
-      expect(child.text()).toBe('Sadly, no results found for Nak')
+      expect(child.text()).toBe('Sadly, no results found for Cadana')
     })
 
-    it('Shows a "No results found" message when noResultsInfo is not set', async () => {
+    it('Does not show "No results found" message when noResultsInfo is not set', async () => {
       let child = wrapper.findComponent(VueBootstrapAutocompleteList)
 
       expect(child.isVisible()).toBe(false)
-      wrapper.find('input').setValue('Nak')
+      wrapper.find('input').setValue('Canada')
       await wrapper.vm.$nextTick()
-      expect(child.isVisible()).toBe(true)
-      expect(child.text()).toBe('No results found for Nak.')
+
+      expect(wrapper.props().noResultsInfo).toBe(undefined)
+      expect(wrapper.find('#noResultsInfo').exists()).toBe(false)
     })
 
     it('Does not show a "No results found" message when there are results', async () => {
