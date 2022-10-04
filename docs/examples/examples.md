@@ -48,17 +48,7 @@ export default {
       :disabledValues="selecteduser ? [selecteduser.login] : []"
       placeholder="Search Github Users"
       @input="lookupUser"
-      #use
-      a
-      different
-      background
-      color
-      for
-      even
-      or
-      odd
-      user
-      ids
+      #use a different background color for even or odd user ids
       :background-variant-resolver="
         (user) => (user.id % 2 == 0 ? 'light' : 'dark')
       "
