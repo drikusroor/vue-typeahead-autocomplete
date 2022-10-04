@@ -7,9 +7,9 @@ describe('VueBootstrapAutocompleteListItem.vue', () => {
     wrapper = shallowMount(VueBootstrapAutocompleteListItem)
   })
 
-  it('Mounts and renders an <a> tag', () => {
+  it('Mounts and renders a <li> tag', () => {
     expect(wrapper.exists()).toBe(true)
-    expect(wrapper.element.tagName.toLowerCase()).toBe('a')
+    expect(wrapper.element.tagName.toLowerCase()).toBe('li')
   })
 
   it('Renders textVariant classes properly', async () => {

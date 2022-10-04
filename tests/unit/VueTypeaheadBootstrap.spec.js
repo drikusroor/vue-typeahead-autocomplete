@@ -201,17 +201,41 @@ describe('VueBootstrapAutocomplete', () => {
     })
 
     it('Shows a "No results found for Cadana', async () => {
-      wrapper.setProps({
-        noResultsInfo: 'Sadly, no results found for Cadana'
+      wrapper = mount({
+        components: {
+          VueBootstrapAutocomplete
+        },
+        data() {
+          return {
+            data: demoData,
+            query: ''
+          }
+        },
+        template: `
+          <vue-bootstrap-autocomplete
+            :data="data"
+            v-model="query"
+          >
+            <template #noResultsInfo>
+              <span>No results for {{ query }}</span>
+            </template>
+          </vue-bootstrap-autocomplete>
+        `
       })
 
-      let child = wrapper.findComponent(VueBootstrapAutocompleteList)
+      const child = wrapper.findComponent(VueBootstrapAutocompleteList)
+      const slot = wrapper.find('#noResultsInfo')
 
       expect(child.isVisible()).toBe(false)
+      expect(slot.isVisible()).toBe(false)
       wrapper.find('input').setValue('Cadana')
+
       await wrapper.vm.$nextTick()
       expect(child.isVisible()).toBe(true)
-      expect(child.text()).toBe('Sadly, no results found for Cadana')
+      expect(slot.isVisible()).toBe(true)
+      expect(wrapper.vm.$data.query).toBe('Cadana')
+      expect(slot.text()).toBe('No results for Cadana')
+      expect(child.text()).toBe('No results for Cadana')
     })
 
     it('Does not show "No results found" message when noResultsInfo is not set', async () => {
@@ -226,13 +250,41 @@ describe('VueBootstrapAutocomplete', () => {
     })
 
     it('Does not show a "No results found" message when there are results', async () => {
-      let child = wrapper.findComponent(VueBootstrapAutocompleteList)
+      wrapper = mount({
+        components: {
+          VueBootstrapAutocomplete
+        },
+        data() {
+          return {
+            data: demoData,
+            query: ''
+          }
+        },
+        template: `
+          <vue-bootstrap-autocomplete
+            :data="data"
+            v-model="query"
+          >
+            <template #noResultsInfo>
+              <span>No results for {{ query }}</span>
+            </template>
+          </vue-bootstrap-autocomplete>
+        `
+      })
+
+      const child = wrapper.findComponent(VueBootstrapAutocompleteList)
+      const slot = wrapper.find('#noResultsInfo')
 
       expect(child.isVisible()).toBe(false)
+      expect(slot.isVisible()).toBe(false)
       wrapper.find('input').setValue('Can')
+
       await wrapper.vm.$nextTick()
+
       expect(child.isVisible()).toBe(true)
-      expect(child.text()).not.toBe('No results found for Can.')
+      expect(wrapper.vm.$data.query).toBe('Can')
+      expect(child.html()).not.toContain('No results for')
+      expect(child.text()).not.toBe('No results for Canada')
     })
   })
 })

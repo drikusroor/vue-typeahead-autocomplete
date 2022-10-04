@@ -12,7 +12,7 @@
       @keyup.enter="handleEnter"
     >
       <template slot="append">
-        <button  class="btn btn-primary">
+        <button class="btn btn-primary">
           Search
         </button>
       </template>

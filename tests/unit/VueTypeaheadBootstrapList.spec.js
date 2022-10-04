@@ -42,8 +42,8 @@ describe('VueBootstrapTypeaheadList', () => {
     })
   })
 
-  it('Mounts and renders a list-group div', () => {
-    expect(wrapper.element.tagName.toLowerCase()).toBe('div')
+  it('Mounts and renders a list-group ul', () => {
+    expect(wrapper.element.tagName.toLowerCase()).toBe('ul')
     expect(wrapper.classes()).toContain('list-group')
   })
 

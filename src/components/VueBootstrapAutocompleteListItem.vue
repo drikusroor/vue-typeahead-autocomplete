@@ -1,5 +1,5 @@
 <template>
-  <a
+  <li
     @keydown.tab="$emit('listItemBlur')"
     @keydown.esc.stop.prevent="$emit('listItemBlur')"
     @keydown.down.prevent
@@ -17,7 +17,7 @@
         <span v-html="htmlText"></span>
       </slot>
     </div>
-  </a>
+  </li>
 </template>
 
 <script>
@@ -84,11 +84,11 @@ export default {
 </script>
 
 <style scoped>
-  a:not(.disabled){
+  li:not(.disabled){
     cursor: pointer;
   }
-  a.disabled{
-    cursor: default;
+  li.disabled{
+    cursor: not-allowed;
     pointer-events: none;
   }
 </style>

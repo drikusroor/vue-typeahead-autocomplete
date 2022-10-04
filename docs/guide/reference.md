@@ -2,30 +2,29 @@
 
 ## Props
 
-| Name                       |   type    | Default                         | Description                                                                                                                                                                                                                                                        |
-| -------------------------- | :-------: | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| append                     |  String   |                                 | Text to be appended to the `input-group`                                                                                                                                                                                                                           |
-| autoClose                  | `Boolean` | true                            | Whether the autocomplete should hide upon item selection                                                                                                                                                                                                           |
-| backgroundVariant          |  String   |                                 | Background color for the autocomplete result `list-group` items. [See values here.][1]                                                                                                                                                                             |
-| backgroundVariantResolver  | Function  | input => null                   | Function which accepts the current list item data and returns a background color for the current autocomplete result `list-group` item. The non-null/non-empty string value returned from this function will supersede the value specified in `backgroundVariant`. |
-| data                       |   Array   |                                 | Array of data to be available for querying. **Required**                                                                                                                                                                                                           |
-| disabled                   | `Boolean` | false                           | Enable or disable input field                                                                                                                                                                                                                                      |
-| disabledValues             |  `Array`  | false                           | The dropdown items to `disable`.                                                                                                                                                                                                                                   |
-| disableSort                | `Boolean` | false                           | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.                                         |
-| highlightClass             | `String`  | `vbt-matched-text`              | CSS class to style highlighted text                                                                                                                                                                                                                                |
-| ieCloseFix                 |  Boolean  | true                            | Adds (imperfect) handling for auto closing the typeahead list on focus out in IE                                                                                                                                                                                   |
-| inputClass                 |  String   |                                 | Class to be added to the `input` tag for validation, etc.                                                                                                                                                                                                          |
-| inputName                  |  String   |                                 | Name to be added to the `input` tag.                                                                                                                                                                                                                               |
-| maxMatches                 |  Number   | 10                              | Maximum amount of list items to appear.                                                                                                                                                                                                                            |
-| minMatchingChars           |  Number   | 2                               | Minimum matching characters in query before the typeahead list appears                                                                                                                                                                                             |
-| noResultsInfo              |  String   | 'No results found for {query}.' | Text to show when no results are found for what the user typed. You can use `{query}` to show the user's query.                                                                                                                                                    |
-| prepend                    |  String   |                                 | Text to be prepended to the `input-group`                                                                                                                                                                                                                          |
-| screenReaderTextSerializer | Function  | `input => input`                | Function used to convert the entries in the data array into the screen reader text string. Falls back to the value of serializer.                                                                                                                                  |
-| serializer                 | Function  | `input => input`                | Function used to convert the entries in the data array into a text string.                                                                                                                                                                                         |
-| showAllResults             | `Boolean` | false                           | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".      |
-| showOnFocus                | `Boolean` | false                           | Show results as soon as the input gains focus before the user has typed anything.                                                                                                                                                                                  |
-| size                       |  String   |                                 | Size of the `input-group`. Valid values: `sm`, `md`, or `lg`                                                                                                                                                                                                       |
-| textVariant                |  String   |                                 | Text color for autocomplete result `list-group` items. [See values here.][2]                                                                                                                                                                                       |
+| Name                       |   type    | Default            | Description                                                                                                                                                                                                                                                        |
+| -------------------------- | :-------: | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| append                     |  String   |                    | Text to be appended to the `input-group`                                                                                                                                                                                                                           |
+| autoClose                  | `Boolean` | true               | Whether the autocomplete should hide upon item selection                                                                                                                                                                                                           |
+| backgroundVariant          |  String   |                    | Background color for the autocomplete result `list-group` items. [See values here.][1]                                                                                                                                                                             |
+| backgroundVariantResolver  | Function  | input => null      | Function which accepts the current list item data and returns a background color for the current autocomplete result `list-group` item. The non-null/non-empty string value returned from this function will supersede the value specified in `backgroundVariant`. |
+| data                       |   Array   |                    | Array of data to be available for querying. **Required**                                                                                                                                                                                                           |
+| disabled                   | `Boolean` | false              | Enable or disable input field                                                                                                                                                                                                                                      |
+| disabledValues             |  `Array`  | false              | The dropdown items to `disable`.                                                                                                                                                                                                                                   |
+| disableSort                | `Boolean` | false              | If set to true, no sorting occurs and the list is presented to the user as it is given to the component. Use this if you sort the list before giving it to the component. Ex: an elasticsearch result being passed to Vue.                                         |
+| highlightClass             | `String`  | `vbt-matched-text` | CSS class to style highlighted text                                                                                                                                                                                                                                |
+| ieCloseFix                 |  Boolean  | true               | Adds (imperfect) handling for auto closing the typeahead list on focus out in IE                                                                                                                                                                                   |
+| inputClass                 |  String   |                    | Class to be added to the `input` tag for validation, etc.                                                                                                                                                                                                          |
+| inputName                  |  String   |                    | Name to be added to the `input` tag.                                                                                                                                                                                                                               |
+| maxMatches                 |  Number   | 10                 | Maximum amount of list items to appear.                                                                                                                                                                                                                            |
+| minMatchingChars           |  Number   | 2                  | Minimum matching characters in query before the typeahead list appears                                                                                                                                                                                             |
+| prepend                    |  String   |                    | Text to be prepended to the `input-group`                                                                                                                                                                                                                          |
+| screenReaderTextSerializer | Function  | `input => input`   | Function used to convert the entries in the data array into the screen reader text string. Falls back to the value of serializer.                                                                                                                                  |
+| serializer                 | Function  | `input => input`   | Function used to convert the entries in the data array into a text string.                                                                                                                                                                                         |
+| showAllResults             | `Boolean` | false              | Show all results even ones that highlighting doesn't match. This is useful when interacting with a API that returns results based on different values than what is displayed. Ex: user searches for "USA" and the service returns "United States of America".      |
+| showOnFocus                | `Boolean` | false              | Show results as soon as the input gains focus before the user has typed anything.                                                                                                                                                                                  |
+| size                       |  String   |                    | Size of the `input-group`. Valid values: `sm`, `md`, or `lg`                                                                                                                                                                                                       |
+| textVariant                |  String   |                    | Text color for autocomplete result `list-group` items. [See values here.][2]                                                                                                                                                                                       |
 
 ## Events
 
@@ -40,7 +39,36 @@
 
 ## Slots
 
+### Prepend / Append
+
 There are `prepend` and `append` slots available for adding buttons or other markup. Overrides the prepend and append props.
+
+#### Example
+
+```html
+<vue-bootstrap-autocomplete :data="data" v-model="value">
+  <template #prepend>
+    <button class="btn btn-primary">Prepend</button>
+  </template>
+  <template #append>
+    <button class="btn btn-primary">Append</button>
+  </template>
+</vue-bootstrap-autocomplete>
+```
+
+### No Results Info
+
+There is a `noResultsInfo` slot available for customizing the no results info text. Overrides the `noResultsInfo` fallback content, which is undefined by default.
+
+#### Example
+
+```html
+<vue-bootstrap-autocomplete :data="data" v-model="query">
+  <template #noResultsInfo>
+    <span>No results for <b>{{ query }}</b></span>
+  </template>
+</vue-bootstrap-autocomplete>
+```
 
 ### Scoped Slot
 
