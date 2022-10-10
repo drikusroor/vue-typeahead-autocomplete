@@ -30,6 +30,16 @@
     <li
       id="noResultsInfo"
       class="vbst-item list-group-item list-group-item-action"
+      v-if="matchedItems.length == 0 && !!noResultsInfo && !$scopedSlots.noResultsInfo"
+      tabindex="-1"
+      :disabled="true"
+      :aria-selected="false"
+    >
+      {{ noResultsInfo }}
+    </li>
+    <li
+      id="noResultsInfo"
+      class="vbst-item list-group-item list-group-item-action"
       v-if="matchedItems.length === 0 && !!$scopedSlots.noResultsInfo"
       tabindex="-1"
       :disabled="true"
@@ -105,6 +115,9 @@ export default {
     disabledValues: {
       type: Array,
       default: () => []
+    },
+    noResultsInfo: {
+      type: String
     },
     showOnFocus: {
       type: Boolean,
