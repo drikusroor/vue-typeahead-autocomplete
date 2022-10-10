@@ -279,6 +279,8 @@ export default {
 
 <NoResultsInfoDemo/>
 
+You can either use the `noResultsInfo` prop to display a message when there are no results, or you can use the `no-results-info` slot to display a custom message.
+
 ```vue
 <template>
   <div>
