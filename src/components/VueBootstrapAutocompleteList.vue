@@ -29,23 +29,18 @@
     </vue-bootstrap-autocomplete-list-item>
     <li
       id="noResultsInfo"
-      class="vbst-item list-group-item list-group-item-action"
-      v-if="matchedItems.length == 0 && !!noResultsInfo && !$scopedSlots.noResultsInfo"
+      class="vbst-item list-group-item list-group-item-action disabled"
+      v-if="matchedItems.length == 0 && !!$scopedSlots.noResultsInfo || !!noResultsInfo"
       tabindex="-1"
-      :disabled="true"
-      :aria-selected="false"
+      disabled="disabled"
+      aria-selected="false"
     >
-      {{ noResultsInfo }}
-    </li>
-    <li
-      id="noResultsInfo"
-      class="vbst-item list-group-item list-group-item-action"
-      v-if="matchedItems.length === 0 && !!$scopedSlots.noResultsInfo"
-      tabindex="-1"
-      :disabled="true"
-      :aria-selected="false"
-    >
-      <slot name="noResultsInfo" v-bind="{ data, htmlText }" />
+      <template v-if="$scopedSlots.noResultsInfo">
+        <slot name="noResultsInfo" v-bind="{ data, htmlText }" />
+      </template>
+      <template v-else>
+        {{ noResultsInfo }}
+      </template>
     </li>
   </div>
 </template>

@@ -84,10 +84,10 @@ export default {
 </script>
 
 <style scoped>
-  li:not(.disabled){
+  li:not(.disabled) {
     cursor: pointer;
   }
-  li.disabled{
+  li.disabled {
     cursor: not-allowed;
     pointer-events: none;
   }
