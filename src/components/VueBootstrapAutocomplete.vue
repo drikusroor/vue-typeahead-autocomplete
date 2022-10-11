@@ -49,7 +49,7 @@
       :id="`result-list-${id}`"
       class="vbt-autocomplete-list"
       ref="list"
-      v-show="isFocused && data.length > 0"
+      v-show="isFocused && (data.length > 0 || !!$scopedSlots.noResultsInfo || !!noResultsInfo)"
       :query="inputValue"
       :data="formattedData"
       :background-variant="backgroundVariant"
