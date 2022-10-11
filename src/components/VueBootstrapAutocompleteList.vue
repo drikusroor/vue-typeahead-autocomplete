@@ -30,7 +30,7 @@
     <li
       id="noResultsInfo"
       class="vbst-item list-group-item list-group-item-action disabled"
-      v-if="matchedItems.length == 0 && !!$scopedSlots.noResultsInfo || !!noResultsInfo"
+      v-if="matchedItems.length == 0 && (!!$scopedSlots.noResultsInfo || !!noResultsInfo)"
       tabindex="-1"
       disabled="disabled"
       aria-selected="false"
