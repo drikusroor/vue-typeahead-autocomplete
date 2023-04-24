@@ -4,6 +4,7 @@
     @keydown.esc.stop.prevent="$emit('listItemBlur')"
     @keydown.down.prevent
     @keydown.up.prevent
+    @keyup.enter="$parent.hitActiveListItem($event)"
     @keyup.down="$parent.selectNextListItem($event)"
     @keyup.up="$parent.selectPreviousListItem($event)"
     @blur="processFocusOut"
