@@ -9,13 +9,13 @@ A simple `list-group` based typeahead/autocomplete using Bootstrap 4 and Vue 2
 
 <img src="https://raw.githubusercontent.com/drikusroor/vue-bootstrap-autocomplete/main/assets/screenshot.png" alt="Preview image of the vue-bootstrap-autocomplete component">
 
-Here are some live examples, [give them a try here.](https://drikusroor.github.io/vue-bootstrap-autocomplete-docs/examples/examples.html#custom-suggestion-slot)
+Here are some live examples, [give them a try here.](https://drikusroor.github.io/vue-bootstrap-autocomplete/examples/examples.html#custom-suggestion-slot)
 
 ## Getting Started
-[Getting started guide is here.](https://drikusroor.github.io/vue-bootstrap-autocomplete-docs/guide/gettingStarted.html#installation)
+[Getting started guide is here.](https://drikusroor.github.io/vue-bootstrap-autocomplete/guide/gettingStarted.html#installation)
 
 ## Documentation
-[Docs are here.](https://drikusroor.github.io/vue-bootstrap-autocomplete-docs/)
+[Docs are here.](https://drikusroor.github.io/vue-bootstrap-autocomplete/)
 
 ## Contributing
 Please note that active development is done on the `main` branch. PR's are welcome! Here are the basic steps to get going.
