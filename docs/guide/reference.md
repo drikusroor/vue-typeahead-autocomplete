@@ -26,7 +26,7 @@
 | showOnFocus                | `Boolean` | false              | Show results as soon as the input gains focus before the user has typed anything.                                                                                                                                                                                  |
 | size                       |  String   |                    | Size of the `input-group`. Valid values: `sm`, `md`, or `lg`                                                                                                                                                                                                       |
 | textVariant                |  String   |                    | Text color for autocomplete result `list-group` items. [See values here.][2]                                                                                                                                                                                       |
-
+| state                      |  Boolean  |                | Whether the autocomplete should be in a valid or invalid state.                                                                                                                                                                                                               |
 ## Events
 
 | Name  | Description                                                                                                                                                                                                         |
