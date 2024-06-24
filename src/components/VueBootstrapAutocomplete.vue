@@ -21,7 +21,7 @@
         :id="`typeahead-input-${id}`"
         type="text"
         role="searchbox"
-        :class="[ 'form-control', inputClass, state !== null && { 'is-invalid': state === false, 'is-valid': state === true } ]"
+        :class="[ 'form-control', inputClass, state !== null && { 'is-invalid': !state, 'is-valid': state } ]"
         :aria-labelledby="ariaLabelledBy"
         aria-multiline="false"
         aria-autocomplete="list"
