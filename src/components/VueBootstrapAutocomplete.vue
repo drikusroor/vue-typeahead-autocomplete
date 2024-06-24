@@ -21,7 +21,7 @@
         :id="`typeahead-input-${id}`"
         type="text"
         role="searchbox"
-        :class="`form-control ${inputClass}`"
+        :class="[ 'form-control', inputClass, state !== null && { 'is-invalid': !state, 'is-valid': state } ]"
         :aria-labelledby="ariaLabelledBy"
         aria-multiline="false"
         aria-autocomplete="list"
@@ -181,7 +181,11 @@ export default {
     placeholder: String,
     prepend: String,
     append: String,
-    highlightClass: String
+    highlightClass: String,
+    state: {
+      type: Boolean,
+      default: null
+    }
   },
 
   emits: ['hit', 'input', 'keyup', 'focus', 'blur', 'paste'],
