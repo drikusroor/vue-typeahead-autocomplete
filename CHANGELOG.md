@@ -1,3 +1,21 @@
+## 2.16.0 - 24 Jun 2024
+- Correct minor misspelling by @ryanma in https://github.com/drikusroor/vue-bootstrap-autocomplete/pull/16
+- Correct documentation URLs by @ryanma in https://github.com/drikusroor/vue-bootstrap-autocomplete/pull/17
+- Fix vue warn htmlText by @P3rk1ns in https://github.com/drikusroor/vue-bootstrap-autocomplete/pull/10
+- Fix list hiding on scrollbar click by @CyBot in https://github.com/drikusroor/vue-bootstrap-autocomplete/pull/21
+- Add state prop to the input #18 by @P0sseid0n in https://github.com/drikusroor/vue-bootstrap-autocomplete/pull/19
+- Chore: Add tests & documentation for state prop for validation by @drikusroor in https://github.com/drikusroor/vue-bootstrap-autocomplete/pull/22
+
+## 2.15.3 - 10 May 2023
+- Bugfix: Select list items on enter keypress by @pager-itc in #11
+- test: Cover calls to parent methods on keyup event by @drikusroor in #13, see also issue #12
+
+## 2.15.2 - 11 Oct 2022
+- Show `noResultsInfo` too when there is no data by @drikusroor in #7
+
+## 2.15.1 - 11 Oct 2022
+- Fix no results found prop by @drikusroor in #6
+
 ## 2.15.0 - 29 Sep 2022
 - Add `noResultInfo` for when there are no results matching the user's search
 
