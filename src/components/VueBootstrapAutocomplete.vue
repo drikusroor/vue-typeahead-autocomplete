@@ -260,6 +260,9 @@ export default {
       if (tgt && tgt.classList.contains('vbst-item')) {
         return
       }
+      if (this.$refs.list.$el.matches(':hover')) {
+        return
+      }
       this.$emit('blur', evt)
       this.isFocused = false
     },
