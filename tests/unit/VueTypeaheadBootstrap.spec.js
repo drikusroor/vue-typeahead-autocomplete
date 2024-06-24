@@ -461,5 +461,79 @@ describe('VueBootstrapAutocomplete', () => {
       expect(slot.text()).toBe('No results found')
       expect(child.text()).toBe('No results found')
     });
+
+    it('Adds the correct classes based on the validation state prop', async () => {
+      // if the validation state is set to null, the classes .is-invalid and .is-valid should not be added
+      wrapper = mount({
+        components: {
+          VueBootstrapAutocomplete
+        },
+        data() {
+          return {
+            data: demoData,
+            query: ''
+          }
+        },
+        template: `
+          <vue-bootstrap-autocomplete
+            :data="data"
+            v-model="query"
+            :state="null"
+          />
+        `
+      });
+
+      let vueBootstrapAutocompleteInput = wrapper.findComponent(VueBootstrapAutocomplete).find('input');
+      expect(vueBootstrapAutocompleteInput.classes()).not.toContain('is-invalid');
+      expect(vueBootstrapAutocompleteInput.classes()).not.toContain('is-valid');
+
+      // if the validation state is set to false, the class .is-invalid should be added
+      wrapper = mount({
+        components: {
+          VueBootstrapAutocomplete
+        },
+        data() {
+          return {
+            data: demoData,
+            query: ''
+          }
+        },
+        template: `
+          <vue-bootstrap-autocomplete
+            :data="data"
+            v-model="query"
+            :state="false"
+          />
+        `
+      });
+
+      vueBootstrapAutocompleteInput = wrapper.findComponent(VueBootstrapAutocomplete).find('input');
+      expect(vueBootstrapAutocompleteInput.classes()).toContain('is-invalid');
+      expect(vueBootstrapAutocompleteInput.classes()).not.toContain('is-valid');
+
+      // if the validation state is set to true, the class .is-valid should be added
+      wrapper = mount({
+        components: {
+          VueBootstrapAutocomplete
+        },
+        data() {
+          return {
+            data: demoData,
+            query: ''
+          }
+        },
+        template: `
+          <vue-bootstrap-autocomplete
+            :data="data"
+            v-model="query"
+            :state="true"
+          />
+        `
+      });
+
+      vueBootstrapAutocompleteInput = wrapper.findComponent(VueBootstrapAutocomplete).find('input');
+      expect(vueBootstrapAutocompleteInput.classes()).toContain('is-valid');
+      expect(vueBootstrapAutocompleteInput.classes()).not.toContain('is-invalid');
+    });
   });
 })
