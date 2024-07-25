@@ -1,5 +1,5 @@
 <template>
-  <div :is="'ul'" class="list-group shadow" ref="suggestionList">
+  <div :is="'ul'" :class="['list-group', matchedItems.length && 'shadow']" ref="suggestionList">
     <vue-bootstrap-autocomplete-list-item
       v-for="(item, id) in matchedItems"
       :key="id"
