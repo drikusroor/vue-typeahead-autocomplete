@@ -15,9 +15,9 @@ jobs:
       matrix:
         node-version: [ 12.x, 14.x, 16.x, 18.x, 20.x ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Lint & Test
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
@@ -47,13 +47,13 @@ jobs:
       matrix:
         node-version: [ 14.x ]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Build & Release
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run build
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}
