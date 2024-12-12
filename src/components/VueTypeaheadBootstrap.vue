@@ -34,6 +34,7 @@
         @keydown.esc="handleEsc($event.target.value)"
         @keyup="$emit('keyup', $event)"
       />
+      <slot name="label"></slot>
       <div v-if="$slots.append || append" class="input-group-append">
         <slot name="append">
           <span class="input-group-text">{{ append }}</span>
@@ -133,6 +134,10 @@ export default {
       type: String,
       default: ''
     },
+    inputGroupClass: {
+      type: String,
+      default: null
+    },
     inputName: {
       type: String,
       default: undefined
@@ -178,6 +183,7 @@ export default {
       return Math.floor(Math.random() * 100000)
     },
     inputGroupClasses() {
+      if(this.inputGroupClass) return this.inputGroupClass
       return this.size ? `input-group input-group-${this.size}` : 'input-group'
     },
 
